@@ -1,5 +1,4 @@
-Credits: https://github.com/xhuvom/darknetFaceID
-Other References: https://github.com/quanhua92/darknet
+
 
 
 ## Requisite
@@ -41,7 +40,8 @@ python scripts/convert.py
 ```
 
 
-
-For more information see the [Darknet project website](http://pjreddie.com/darknet).
-
-For questions or issues please use the [Google Group](https://groups.google.com/forum/#!forum/darknet).
+## Credits & Reference & Acknowledgments 
+* Credits: https://github.com/xhuvom/darknetFaceID
+* Other References: https://github.com/quanhua92/darknet
+* For more information see the [Darknet project website](http://pjreddie.com/darknet).
+* For questions or issues please use the [Google Group](https://groups.google.com/forum/#!forum/darknet).
