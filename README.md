@@ -30,20 +30,38 @@ clear && mogrify -format JPEG -path ./data/edwin/images-darknet ./data/edwin/ima
 python scripts/convert.py
 ```
 
+```
+clear && mogrify -format JPEG -path ./data/edwin/images-darknet ./data/edwin/images-original/*jpg && python scripts/convert.py
+```
+
 3. Train
 ```
 ./darknet yolo train cfg/yolo-face.cfg weights/yolo-face_final.weights 
 ```
-
 
 ## DEPLOY
 ```
 ???
 ```
 
+## Snippets
+1. Made changes to sources files, recompile and execute training
+```
+make clean && make && ./darknet yolo train cfg/yolo-face.cfg weights/yolo-face_final.weights 
+```
+2. Complete clean up and rebuild
+```
+clear && rm -R data/apple && 
+```
 
 ## TODO
 - [ ] deploy
+
+## SETUP
+* Intel Core i7, 2.5 GHz
+* 1 Processor, 4 Cors
+* 16GB MEMORY
+* AMD Radeon R9 M370X
 
 ## Credits & Reference & Acknowledgments 
 * Credits: https://github.com/xhuvom/darknetFaceID
