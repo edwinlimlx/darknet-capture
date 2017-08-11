@@ -57,10 +57,10 @@ typings/
 # dotenv environment variables file
 .env
 
-darknet
-predictions*
+<<<<<<< HEAD
+prediction*
 **/edwin*
 *.weights
 **/*.weights
-
-
+=======
+>>>>>>> 7b7de194da270569af3bc599c5e6c011d1775f10
