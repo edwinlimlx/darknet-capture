@@ -116,6 +116,8 @@ void demo(char *cfgfile, char *weightfile, float thresh, int cam_index, const ch
         cap = cvCaptureFromFile(filename);
     }else{
         cap = cvCaptureFromCAM(cam_index);
+        cvSetCaptureProperty(cap,CV_CAP_PROP_FRAME_HEIGHT,480); 
+        cvSetCaptureProperty(cap,CV_CAP_PROP_FRAME_WIDTH ,640); 
     }
 
     if(!cap) error("Couldn't connect to webcam.\n");

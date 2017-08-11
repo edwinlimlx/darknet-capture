@@ -223,12 +223,12 @@ void draw_detections(image im, int num, float thresh, box *boxes, float **probs,
             char name[20] = "edwin";
             char imagepath[100];
 
-            sprintf(imagepath, "/Users/elim/Site/git/darknetFaceID/data/%s/images-original/%s", name, name);
+            sprintf(imagepath, "/Users/elim/Site/git/darknet-face/data/%s/images-original/%s", name, name);
             save_image(im, imagepath); // change ur own directory
         
             draw_box_width(im, left, top, right, bot, width, red, green, blue);
 
-            sprintf(str, "/Users/elim/Site/git/darknetFaceID/data/%s/labels-original/%s_%d.txt", name, name, imnumber); // change ur desired directory
+            sprintf(str, "/Users/elim/Site/git/darknet-face/data/%s/labels-original/%s_%d.txt", name, name, imnumber); // change ur desired directory
             fp = fopen(str, "w");
             fprintf(fp, "1\n%d %d %d %d", left, top, right, bot); // change class number #1 
             fclose(fp);

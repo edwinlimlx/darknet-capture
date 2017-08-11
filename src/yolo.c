@@ -14,11 +14,10 @@ char *voc_names[] = {"edwin"};
 
 void train_yolo(char *cfgfile, char *weightfile)
 {
-    char *train_images = "/Users/elim/Site/git/darknetFaceID/data/edwin/edwin_list.txt";
-    char *backup_directory = "/Users/elim/Site/git/darknetFaceID/backup/";
+    char *train_images = "/Users/elim/Site/git/darknet-face/data/edwin/edwin_list.txt";
+    char *backup_directory = "/Users/elim/Site/git/darknet-face/backup/";
     srand(time(0));
     char *base = basecfg(cfgfile);
-    printf("%s\n", base);
     float avg_loss = -1;
     network net = parse_network_cfg(cfgfile);
     if(weightfile){
@@ -29,20 +28,16 @@ void train_yolo(char *cfgfile, char *weightfile)
     int i = *net.seen/imgs;
 
     data train, buffer;
-
-
     layer l = net.layers[net.n - 1];
 
     int side = l.side;
     int classes = l.classes;
     float jitter = l.jitter;
 
-
     list *plist = get_paths(train_images);
 
     //int N = plist->size;
     char **paths = (char **)list_to_array(plist);
-
 
     load_args args = {0};
     args.w = net.w;
@@ -345,7 +340,7 @@ void run_yolo(int argc, char **argv)
     float thresh = find_float_arg(argc, argv, "-thresh", .2);
     int cam_index = find_int_arg(argc, argv, "-c", 0);
     int frame_skip = find_int_arg(argc, argv, "-s", 0);
-    if(argc < 4){
+    if(argc < 1){
         fprintf(stderr, "usage: %s %s [train/test/valid] [cfg] [weights (optional)]\n", argv[0], argv[1]);
         return;
     }

@@ -1,7 +1,7 @@
 ## Requisite
 1. Create folders for original and darknet images and annotations
 ```
-mkdir ./data/edwin/images-original ./data/edwin/labels-original ./data/edwin/images-darknet ./data/edwin/labels-darknet
+mkdir ./data/edwin ./data/edwin/images-original ./data/edwin/labels-original ./data/edwin/images-darknet ./data/edwin/labels-darknet
 ```
 
 
@@ -16,7 +16,7 @@ make clean && make
 3. Start the capture
 images will be saved into path specific in #1. In my case is data/edwin/images-original/
 ```
-clear && ./darknet detector demo cfg/coco.data cfg/yolo-face.cfg weights/yolo-face_final.weights
+clear && ./darknet detector demo cfg/yolo-face.data cfg/yolo-face.cfg weights/yolo-face_final.weights 
 ``` 
 
 
@@ -31,6 +31,7 @@ clear && mogrify -format JPEG -path ./data/edwin/images-darknet ./data/edwin/ima
 python scripts/convert.py
 ```
 
+Lazy me
 ```
 clear && mogrify -format JPEG -path ./data/edwin/images-darknet ./data/edwin/images-original/*jpg && python scripts/convert.py
 ```
@@ -50,9 +51,15 @@ clear && mogrify -format JPEG -path ./data/edwin/images-darknet ./data/edwin/ima
 ```
 make clean && make && ./darknet yolo train cfg/yolo-face.cfg weights/yolo-face_final.weights 
 ```
+
 2. Complete clean up, rebuild and jumps to capture training
 ```
-clear && rm -R data/edwin && mkdir ./data/edwin/images-original ./data/edwin/labels-original ./data/edwin/images-darknet ./data/edwin/labels-darknet && make clean && make && clear && ./darknet detector demo cfg/coco.data cfg/yolo-face.cfg weights/yolo-face_final.weights
+clear && rm -R data/edwin && mkdir ./data/edwin ./data/edwin/images-original ./data/edwin/labels-original ./data/edwin/images-darknet ./data/edwin/labels-darknet && make clean && make && clear && ./darknet detector demo cfg/yolo-face.data cfg/yolo-face.cfg weights/yolo-face_final.weights
+```
+
+3. Rebuild and Train
+```
+clear && make clean && make && ./darknet detector train cfg/coco.data cfg/yolo-face.data cfg/yolo-face.cfg weights/darknet19_448.conv.23
 ```
 
 ## TODO
