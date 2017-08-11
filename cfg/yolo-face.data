@@ -1,4 +1,5 @@
 classes=1
 train  = data/edwin/edwin_list.txt
+valid = data/face.names
 names = data/face.names
-#backup = backup
+backup = backup

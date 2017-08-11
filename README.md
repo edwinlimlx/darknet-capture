@@ -40,7 +40,7 @@ clear && mogrify -format JPEG -path ./data/edwin/images-darknet ./data/edwin/ima
 ./darknet yolo train cfg/yolo-face.cfg weights/yolo-face_final.weights 
 ```
 
-## DEPLOY
+## DEPLOY & DETECTOR
 ```
 ???
 ```
