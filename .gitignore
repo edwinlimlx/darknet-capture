@@ -62,5 +62,6 @@ predictions*
 **/edwin*
 *.weights
 **/*.weights
+*.DS_Store
 
 
