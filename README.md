@@ -49,9 +49,9 @@ clear && mogrify -format JPEG -path ./data/edwin/images-darknet ./data/edwin/ima
 ```
 make clean && make && ./darknet yolo train cfg/yolo-face.cfg weights/yolo-face_final.weights 
 ```
-2. Complete clean up and rebuild
+2. Complete clean up, rebuild and jumps to capture training
 ```
-clear && rm -R data/apple && 
+clear && rm -R data/apple && mkdir ./data/edwin/images-original ./data/edwin/labels-original ./data/edwin/images-darknet ./data/edwin/labels-darknet && make clean && make && clear && ./darknet detector demo cfg/coco.data cfg/yolo-face.cfg weights/yolo-face_final.weights
 ```
 
 ## TODO
