@@ -14,18 +14,19 @@ make clean && make
 ```
 
 3. Start the capture
+images will be saved into path specific in #1. In my case is data/edwin/images-original/
 ```
 clear && ./darknet detector demo cfg/coco.data cfg/yolo-face.cfg weights/yolo-face_final.weights
 ``` 
 
 
 ## TRAIN
-1. Convert images to darknet JPEGs
+1. Convert images to darknet JPEGs. This will convert *.jpg images in data/edwin/images-original/ to JPEG at data/edwin/images-darknet/
 ```
 clear && mogrify -format JPEG -path ./data/edwin/images-darknet ./data/edwin/images-original/*jpg
 ```
 
-2. Run the label to annotation conversion. This will generate edwin_list.txt
+2. Run the label to annotation conversion. This will generate edwin_list.txt & convert data/edwin/label-original/ to data/edwin/label-darknet/
 ```
 python scripts/convert.py
 ```
