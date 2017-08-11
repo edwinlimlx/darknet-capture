@@ -25,7 +25,7 @@ clear && ./darknet detector demo cfg/coco.data cfg/yolo-face.cfg weights/yolo-fa
 clear && mogrify -format JPEG -path ./data/edwin/images-darknet ./data/edwin/images-original/*jpg
 ```
 
-2. Run the label to annotation conversion
+2. Run the label to annotation conversion. This will generate edwin_list.txt
 ```
 python scripts/convert.py
 ```
@@ -51,7 +51,7 @@ make clean && make && ./darknet yolo train cfg/yolo-face.cfg weights/yolo-face_f
 ```
 2. Complete clean up, rebuild and jumps to capture training
 ```
-clear && rm -R data/apple && mkdir ./data/edwin/images-original ./data/edwin/labels-original ./data/edwin/images-darknet ./data/edwin/labels-darknet && make clean && make && clear && ./darknet detector demo cfg/coco.data cfg/yolo-face.cfg weights/yolo-face_final.weights
+clear && rm -R data/edwin && mkdir ./data/edwin/images-original ./data/edwin/labels-original ./data/edwin/images-darknet ./data/edwin/labels-darknet && make clean && make && clear && ./darknet detector demo cfg/coco.data cfg/yolo-face.cfg weights/yolo-face_final.weights
 ```
 
 ## TODO
