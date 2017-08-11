@@ -31,7 +31,7 @@ def convert(size, box):
 """-------------------------------------------------------------------""" 
 
 """ Configure Paths"""
-root = "/Users/elim/Site/git/darknetFaceID/data/edwin"
+root = "/Users/elim/Site/git/darknet-face/data/edwin"
 mypath = str('%s/labels-original/'%(root))
 outpath = str('%s/labels-darknet/'%(root))
 

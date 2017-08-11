@@ -63,5 +63,5 @@ predictions*
 *.weights
 **/*.weights
 *.DS_Store
-
-
+*.23
+/weights/*
