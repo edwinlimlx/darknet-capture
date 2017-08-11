@@ -57,7 +57,10 @@ typings/
 # dotenv environment variables file
 .env
 
+
 prediction*
 **/edwin*
 *.weights
 **/*.weights
+
+
