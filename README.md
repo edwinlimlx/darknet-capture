@@ -71,7 +71,7 @@ clear && make clean && make
 * AMD Radeon R9 M370X
 
 ## Credits & Reference & Acknowledgments 
-* Credits: https://github.com/xhuvom/darknetFaceID
+* Credits: https://github.com/AlexeyAB/darknet, https://github.com/xhuvom/darknetFaceID
 * Other References: https://github.com/quanhua92/darknet
 * For more information see the [Darknet project website](http://pjreddie.com/darknet).
 * For questions or issues please use the [Google Group](https://groups.google.com/forum/#!forum/darknet).
