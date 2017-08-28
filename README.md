@@ -3,7 +3,7 @@ YOLO V2
 ## Requisite
 1. Create folder for darknet images and label
 ```
-mkdir captures captures/final
+mkdir captures captures/edwin captures/edwin/final
 ```
 
 
@@ -31,7 +31,7 @@ clear && make clean && make && ./darknet detector demo cfg/yolo-face.data weight
 
 
 
-## TRAIN
+## TRAIN (NOT TESTED)
 1. Train
 ```
 ./darknet yolo train cfg/yolo-face.cfg weights/yolo-face_final.weights
