@@ -9,18 +9,18 @@ mkdir captures captures/edwin captures/edwin/final
 
 
 ## CAPTURE 
-1. Change the name for class in src/image.c line 226
+1. Change the name for class in `src/image.c` line 226
 
-2. Change the path in cfg/yolo-face.data 
+2. Change the path in `cfg/yolo-face.data `
 
-3. Change the name in data/face.names
+3. Change the name in `data/face.names`
 
 4. Compile the darknet executable
 ```
 make clean && make
 ```
 5. Start the capture
-Try with -thresh .7 or more for better quality training. Using yolo-face.cfg and yolo-face_final.weights from quanhua92's weights https://mega.nz/#F!GRV1XKbJ!v8BCsFO8iJVNppiGXY4qMw
+Try with -thresh .7 or more for better quality training. Using `yolo-face.cfg` and `yolo-face_final.weights` from quanhua92's weights https://mega.nz/#F!GRV1XKbJ!v8BCsFO8iJVNppiGXY4qMw
 ```
 clear && ./darknet detector demo cfg/yolo-face.data cfg/yolo-face.cfg weights/yolo-face_final.weights -thresh .6
 ``` 
@@ -32,7 +32,6 @@ clear && make clean && make && ./darknet detector demo cfg/yolo-face.data weight
 
 
 ## TRAIN (NOT TESTED)
-1. Train
 ```
 ./darknet yolo train cfg/yolo-face.cfg weights/yolo-face_final.weights
 ./darknet detector train cfg/yolo-face.data cfg/yolo-face.cfg weights/darknet19_448.conv.23
@@ -44,22 +43,6 @@ clear && make clean && make && ./darknet detector demo cfg/yolo-face.data weight
 ```
 
 
-
-## Snippets
-1. Made changes to sources files, recompile and execute training
-```
-make clean && make && ./darknet yolo train cfg/yolo-face.cfg weights/yolo-face_final.weights 
-```
-
-2. Complete clean up, rebuild and jumps to capture training (NOT TESTED)
-```
-clear && rm -R data/edwin && mkdir ./data/edwin ./data/edwin/images-original ./data/edwin/labels-original ./data/edwin/images-darknet ./data/edwin/labels-darknet && make clean && make && clear && ./darknet detector demo cfg/yolo-face.data cfg/yolo-face.cfg weights/yolo-face_final.weights
-```
-
-3. Rebuild and Train
-```
-clear && make clean && make
-```
 
 ## TODO
 - [ ] deploy
