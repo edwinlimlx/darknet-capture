@@ -3,8 +3,9 @@ YOLO V2
 ## Requisite
 1. Create folder for darknet images and label
 ```
-mkdir data/edwin data/edwin/final
+mkdir captures captures/final
 ```
+
 
 
 ## CAPTURE 
@@ -31,24 +32,7 @@ clear && make clean && make && ./darknet detector demo cfg/yolo-face.data weight
 
 
 ## TRAIN
-1. Convert images to darknet JPEGs. This will convert *.jpg images in data/edwin/images-original/ to JPEG at data/edwin/images-darknet/
-```
-clear && mogrify -format JPEG -path ./data/edwin/images-darknet ./data/edwin/images-original/*jpg
-```
-
-2. Update the root path in convert.py
-
-3. Run the label to annotation conversion. This will generate edwin_list.txt & convert data/edwin/label-original/ to data/edwin/label-darknet/
-```
-python scripts/convert.py
-```
-
-Lazy me
-```
-clear && mogrify -format JPEG -path ./data/edwin/images-darknet ./data/edwin/images-original/*jpg && python scripts/convert.py
-```
-
-3. Train
+1. Train
 ```
 ./darknet yolo train cfg/yolo-face.cfg weights/yolo-face_final.weights
 ./darknet detector train cfg/yolo-face.data cfg/yolo-face.cfg weights/darknet19_448.conv.23
@@ -58,6 +42,8 @@ clear && mogrify -format JPEG -path ./data/edwin/images-darknet ./data/edwin/ima
 ```
 ./darknet detector demo cfg/yolo-face.data cfg/yolo-face.cfg backup/yolo-face_final.weights
 ```
+
+
 
 ## Snippets
 1. Made changes to sources files, recompile and execute training
