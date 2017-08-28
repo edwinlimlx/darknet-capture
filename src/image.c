@@ -226,12 +226,12 @@ void draw_detections(image im, int num, float thresh, box *boxes, float **probs,
             char name[20] = "edwin";
             char imagepath[150];
 
-            sprintf(imagepath, "/Users/elim/Site/git/darknet-capture/data/%s/final/%s_%d.jpg", name, name, imnumber);
+            sprintf(imagepath, "/Users/elim/Site/git/darknet-capture/captures/%s/final/%s_%d.jpg", name, name, imnumber);
             save_image(im, imagepath); // change ur own directory
         
             draw_box_width(im, left, top, right, bot, width, red, green, blue);
 
-            sprintf(str, "/Users/elim/Site/git/darknet-capture/data/%s/final/%s_%d.txt", name, name, imnumber); // change ur desired directory
+            sprintf(str, "/Users/elim/Site/git/darknet-capture/captures/%s/final/%s_%d.txt", name, name, imnumber); // change ur desired directory
             fp = fopen(str, "w");
 
             // yolo 2.0 requires box from center

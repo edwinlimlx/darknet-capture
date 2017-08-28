@@ -59,7 +59,8 @@ typings/
 
 darknet
 predictions*
-**/edwin*
+**/captures*
+captures
 *.weights
 **/*.weights
 *.DS_Store
