@@ -20,7 +20,7 @@ mkdir captures captures/edwin captures/edwin/final
 make clean && make
 ```
 5. Start the capture
-Try with -thresh .7 or more for better quality training. Using `yolo-face.cfg` and `yolo-face_final.weights` from quanhua92's weights https://mega.nz/#F!GRV1XKbJ!v8BCsFO8iJVNppiGXY4qMw
+Try with `-thresh .7` or more for better quality training. Using `yolo-face.cfg` and `yolo-face_final.weights` from quanhua92's weights https://mega.nz/#F!GRV1XKbJ!v8BCsFO8iJVNppiGXY4qMw
 ```
 clear && ./darknet detector demo cfg/yolo-face.data cfg/yolo-face.cfg weights/yolo-face_final.weights -thresh .6
 ``` 
@@ -45,11 +45,12 @@ clear && make clean && make && ./darknet detector demo cfg/yolo-face.data weight
 
 
 ## TODO
+- [ ] train
 - [ ] deploy
 
 ## SETUP
 * Intel Core i7, 2.5 GHz
-* 1 Processor, 4 Cors
+* 1 Processor, 4 Cores
 * 16GB MEMORY
 * AMD Radeon R9 M370X
 
