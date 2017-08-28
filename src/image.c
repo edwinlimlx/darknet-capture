@@ -184,6 +184,9 @@ void draw_detections(image im, int num, float thresh, box *boxes, float **probs,
 {
     int i;
     char str[100];
+    int image_w = im.w;
+    int image_h = im.h;
+    // printf("image w/h: %d/%d\n", im.w, im.h);
     for(i = 0; i < num; ++i){
         int class = max_index(probs[i], classes);
         float prob = probs[i][class];
@@ -221,16 +224,28 @@ void draw_detections(image im, int num, float thresh, box *boxes, float **probs,
             if(bot > im.h-1) bot = im.h-1;
 
             char name[20] = "edwin";
-            char imagepath[100];
+            char imagepath[150];
 
-            sprintf(imagepath, "/Users/elim/Site/git/darknet-face/data/%s/images-original/%s", name, name);
+            sprintf(imagepath, "/Users/elim/Site/git/darknet-capture/data/%s/final/%s_%d.jpg", name, name, imnumber);
             save_image(im, imagepath); // change ur own directory
         
             draw_box_width(im, left, top, right, bot, width, red, green, blue);
 
-            sprintf(str, "/Users/elim/Site/git/darknet-face/data/%s/labels-original/%s_%d.txt", name, name, imnumber); // change ur desired directory
+            sprintf(str, "/Users/elim/Site/git/darknet-capture/data/%s/final/%s_%d.txt", name, name, imnumber); // change ur desired directory
             fp = fopen(str, "w");
-            fprintf(fp, "1\n%d %d %d %d", left, top, right, bot); // change class number #1 
+
+            // yolo 2.0 requires box from center
+            // https://github.com/AlexeyAB/darknet#how-to-improve-object-detection
+            float _width = right-left;
+            float _height = bot-top;
+            float _centerx = (_width/2) + left;
+            float _centery = (_height/2) + top;
+            float dx = _centerx/image_w;
+            float dy = _centery/image_h;
+            float dw = _width/image_w;
+            float dh = _height/image_h;
+
+            fprintf(fp, "0 %f %f %f %f", dx, dy, dw, dh);
             fclose(fp);
 
             imnumber++;
@@ -530,9 +545,9 @@ void save_image_jpg(image p, const char *name)
     image copy = copy_image(p);
     if(p.c == 3) rgbgr_image(copy);
     int x,y,k;
-    char buff[256];
-	     
-	sprintf(buff, "%s_%d.jpg", name, imnumber);
+
+    // char buff[256];
+    // sprintf(buff, "%s_%d.jpg", name, imnumber);
 
     IplImage *disp = cvCreateImage(cvSize(p.w,p.h), IPL_DEPTH_8U, p.c);
     int step = disp->widthStep;
@@ -543,7 +558,7 @@ void save_image_jpg(image p, const char *name)
             }
         }
     }
-    cvSaveImage(buff, disp,0);
+    cvSaveImage(name, disp,0);
     cvReleaseImage(&disp);
     free_image(copy);
 }

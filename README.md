@@ -1,25 +1,33 @@
-YOLO V1
+YOLO V2
 
 ## Requisite
-1. Create folders for original and darknet images and annotations
+1. Create folder for darknet images and label
 ```
-mkdir ./data/edwin ./data/edwin/images-original ./data/edwin/labels-original ./data/edwin/images-darknet ./data/edwin/labels-darknet
+mkdir data/edwin data/edwin/final
 ```
 
 
 ## CAPTURE 
-1. Edit the ouput directories in src/image.c line 226 & 231
+1. Change the name for class in src/image.c line 226
 
-2. Compile the darknet executable
+2. Change the path in cfg/yolo-face.data 
+
+3. Change the name in data/face.names
+
+4. Compile the darknet executable
 ```
 make clean && make
 ```
-
-3. Start the capture
-images will be saved into path specific in #1. In my case is data/edwin/images-original/
+5. Start the capture
+Try with -thresh .7 or more for better quality training. Using yolo-face.cfg and yolo-face_final.weights from quanhua92's weights https://mega.nz/#F!GRV1XKbJ!v8BCsFO8iJVNppiGXY4qMw
 ```
-clear && ./darknet detector demo cfg/yolo-face.data cfg/yolo-face.cfg weights/yolo-face_final.weights 
+clear && ./darknet detector demo cfg/yolo-face.data cfg/yolo-face.cfg weights/yolo-face_final.weights -thresh .6
 ``` 
+6. Shorthand for recompiling and start capturing
+```
+clear && make clean && make && ./darknet detector demo cfg/yolo-face.data weights/yolo-face.cfg weights/yolo-face_final.weights -thresh .6
+``` 
+
 
 
 ## TRAIN
